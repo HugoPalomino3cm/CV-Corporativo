@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina - Colaciones Empresariales de Calidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 3rem;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            color: #3498db;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #3498db;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: #3498db;
+            color: white !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Portada / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 152, 219, 0.9) 100%), 
+                        url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h100v100H0z" fill="%23f8f9fa"/%3E%3C/svg%3E');
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path></svg>') repeat-x;
+            background-size: 100% 120px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #3498db;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.15rem;
+            margin-bottom: 4rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Quiénes Somos */
+        .about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #ecf0f1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.15);
+            border-color: #3498db;
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            display: none;
+        }
+
+        /* Servicios */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            color: #2c3e50;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #ecf0f1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
+            border-color: #3498db;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #7f8c8d;
+        }
+
+        /* Diferenciador */
+        .differentiator {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: #f8f9fa;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.15);
+            background: white;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .feature h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Contacto */
+        .contact {
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .contact h2 {
+            color: #2c3e50;
+        }
+
+        .contact h2::after {
+            background: #3498db;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #ecf0f1;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
+            border-color: #3498db;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .contact-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.1rem;
+            word-break: break-word;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #25d366;
+            animation: pulse-whatsapp 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Gmail Float Button */
+        .gmail-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 100px;
+            right: 30px;
+            background-color: #EA4335;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(234, 67, 53, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .gmail-float:hover {
+            background-color: #d33426;
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(234, 67, 53, 0.6);
+        }
+
+        .gmail-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #EA4335;
+            animation: pulse-gmail 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-gmail {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                transition: left 0.3s ease;
+                padding-top: 80px;
+                gap: 0;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                display: block;
+            }
+
+            .nav-cta {
+                display: inline-block;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+                padding-top: 80px;
+                min-height: 90vh;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem !important;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 26px;
+            }
+
+            .gmail-float {
+                width: 55px;
+                height: 55px;
+                bottom: 85px;
+                right: 20px;
+                font-size: 26px;
+            }
+
+            footer {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .service-card h3,
+            .card h3,
+            .contact-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Valentina</div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#about" class="nav-link">Nosotros</a></li>
+                <li><a href="#services" class="nav-link">Servicios</a></li>
+                <li><a href="#differentiator" class="nav-link">Diferenciadores</a></li>
+                <li><a href="#contact" class="nav-cta nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Botones Flotantes -->
+    <!-- Botón Gmail Flotante -->
+    <a href="mailto:comercialvalentina2020@gmail.com" class="gmail-float" title="Enviar correo electrónico">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        </svg>
+    </a>
+    
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/56992966111" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="white">
+            <path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.738 5.477 2.031 7.773L0 32l8.428-2.209A15.936 15.936 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.098 23.002c-.348.982-2.039 1.805-2.828 1.93-.75.118-1.727.163-2.789-.176-1.258-.402-2.871-.937-4.941-2.063-4.414-2.402-7.273-6.837-7.492-7.152-.219-.316-1.789-2.387-1.789-4.551 0-2.164 1.133-3.227 1.531-3.668.398-.441.871-.551 1.168-.551.297 0 .59.012.844.035.27.023.633-.102.992.754.359.86 1.254 3.094 1.363 3.32.11.219.18.473.039.77-.141.297-.211.477-.422.738-.211.262-.445.586-.633.789-.211.238-.434.496-.188.969.246.473 1.102 1.824 2.363 2.949 1.629 1.453 2.996 1.906 3.422 2.125.426.219.676.18.922-.105.246-.285.996-1.164 1.262-1.563.266-.398.531-.332.895-.199.363.133 2.316 1.094 2.719 1.293.402.203.668.301.766.469.098.164.098.938-.25 1.918z"/>
+        </svg>
+    </a>
+
+    <!-- Portada -->
+    <section class="hero" id="inicio">
+        <div class="hero-content fade-in">
+            <div class="logo">V</div>
+            <h1>Valentina</h1>
+            <p class="tagline">Colaciones Empresariales de Calidad</p>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Alimentación preparada con los más altos estándares para tu empresa</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="white">
+                <path d="M15 3L15 20M15 20L9 14M15 20L21 14"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section class="about" id="about">
+        <h2>Quiénes Somos</h2>
+        <div class="about-content">
+            <p>
+                Nuestra empresa fue creada en <strong>octubre del año 2019</strong>, una empresa familiar donde nuestro objetivo inicial era la venta de café. Sin embargo, con el paso del tiempo nos fuimos dando cuenta que necesitábamos reinventarnos, ya que el mercado iba cambiando.
+            </p>
+            <p>
+                Por lo que pusimos todos nuestros esfuerzos en la venta de platos preparados como <strong>colaciones ejecutivas</strong>, teniendo una gran aceptación de parte de nuestra clientela, dándonos las herramientas para mantenernos en el tiempo y buscar más oportunidades para ir creciendo cada día más.
+            </p>
+            
+            <div class="mission-vision">
+                <div class="card">
+                    <h3>Misión</h3>
+                    <p>Entregar un producto de calidad para cada necesidad de nuestros clientes, garantizando satisfacción en cada servicio.</p>
+                </div>
+                <div class="card">
+                    <h3>Visión</h3>
+                    <p>Perdurar en el tiempo, expandirnos a nuevos mercados y captar nuevos clientes, asegurando un crecimiento sólido y sostenible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="services" id="services">
+        <h2>Nuestros Servicios</h2>
+        <p class="section-subtitle">Soluciones integrales de alimentación para tu empresa</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Colaciones Empresariales</h3>
+                <p>Menús variados y equilibrados diseñados especialmente para el trabajador, con opciones nutritivas y deliciosas.</p>
+            </div>
+            <div class="service-card">
+                <h3>Alimentación Preparada</h3>
+                <p>Platos preparados con los más altos estándares de calidad e higiene, listos para servir.</p>
+            </div>
+            <div class="service-card">
+                <h3>Alimentación Fría</h3>
+                <p>Opciones frescas y saludables, ideales para cualquier momento del día laboral.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciador -->
+    <section class="differentiator" id="differentiator">
+        <h2>¿Por Qué Elegirnos?</h2>
+        <p class="section-subtitle">Lo que nos hace diferentes y especiales</p>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Calidad Garantizada</h3>
+                <p>Utilizamos materias primas de primera calidad en todos nuestros productos</p>
+            </div>
+            <div class="feature">
+                <h3>Altos Estándares</h3>
+                <p>Cumplimos con las normas sanitarias y de calidad más exigentes</p>
+            </div>
+            <div class="feature">
+                <h3>Servicio Integral</h3>
+                <p>Nos adaptamos a todas las necesidades específicas de cada cliente</p>
+            </div>
+            <div class="feature">
+                <h3>Experiencia</h3>
+                <p>Más de 5 años sirviendo a empresas con excelencia</p>
+            </div>
+            <div class="feature">
+                <h3>Empresa Familiar</h3>
+                <p>Atención personalizada y cercana en cada servicio</p>
+            </div>
+            <div class="feature">
+                <h3>Entregas Puntuales</h3>
+                <p>Garantizamos puntualidad en todas nuestras entregas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contact">
+        <h2>Contáctanos</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Estamos aquí para atender tus necesidades</p>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Correo Electrónico</h3>
+                <a href="mailto:comercialvalentina2020@gmail.com">comercialvalentina2020@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/56992966111" target="_blank">+569 9296 6111</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Valentina - Colaciones Empresariales. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desde 2019 sirviendo con calidad y dedicación</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animación al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las secciones
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // La primera sección (hero) debe aparecer inmediatamente
+        document.querySelector('.hero').style.opacity = '1';
+    </script>
+</body>
+</html>
