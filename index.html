@@ -163,6 +163,7 @@
             padding-top: 100px;
             position: relative;
             overflow: hidden;
+            background-attachment: fixed;
         }
 
         .hero::before {
@@ -172,9 +173,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path></svg>') repeat-x;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.08" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path></svg>') repeat-x;
             background-size: 100% 120px;
-            opacity: 0.3;
+            opacity: 0.4;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(46, 204, 113, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -345,7 +359,7 @@
         .service-card {
             background: white;
             color: #2c3e50;
-            padding: 3rem 2rem;
+            padding: 0;
             border-radius: 15px;
             text-align: center;
             transition: all 0.4s ease;
@@ -353,6 +367,45 @@
             border: 1px solid #ecf0f1;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 2.5rem 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-image-placeholder {
+            font-size: 0.8rem;
+            color: #95a5a6;
+            text-align: center;
+            padding: 0.6rem 1rem;
+            background: #f8f9fa;
+            border-top: 1px solid #ecf0f1;
+            border-bottom: 1px solid #ecf0f1;
+            margin: 0;
+            font-style: italic;
+            font-weight: 500;
         }
 
         .service-card::before {
@@ -403,30 +456,50 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .feature {
-            background: #f8f9fa;
+            background: white;
             padding: 2.5rem 2rem;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: left;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
+            border: 1px solid #ecf0f1;
+            position: relative;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db 0%, #3498db 50%, #2ecc71 100%);
+            border-radius: 10px 10px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .feature:hover {
-            transform: translateX(5px);
-            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.15);
-            background: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(52,152,219,0.12);
+            border-color: #d9ecf7;
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .feature:hover::before {
+            opacity: 1;
+        }
+
+        .feature-number {
+            display: none;
+        }
+
+        .feature-icon-box {
             display: none;
         }
 
@@ -435,22 +508,30 @@
             font-size: 1.2rem;
             margin-bottom: 0.8rem;
             font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .feature:hover h3 {
+            color: #3498db;
         }
 
         .feature p {
             color: #7f8c8d;
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 0.95rem;
+            font-weight: 400;
         }
 
         /* Contacto */
         .contact {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             color: #2c3e50;
         }
 
         .contact h2 {
             color: #2c3e50;
+            font-size: 2.8rem;
+            font-weight: 700;
         }
 
         .contact h2::after {
@@ -466,18 +547,37 @@
 
         .contact-card {
             background: white;
-            padding: 3rem 2rem;
-            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
             text-align: center;
             border: 1px solid #ecf0f1;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.2);
             border-color: #3498db;
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
         }
 
         .contact-icon {
@@ -487,10 +587,11 @@
         }
 
         .contact-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
             color: #2c3e50;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .contact-card a {
@@ -505,6 +606,167 @@
         .contact-card a:hover {
             color: #2980b9;
             text-decoration: underline;
+        }
+
+        /* Ubicación Card */
+        .location-card {
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #ecf0f1;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(52, 152, 219, 0.2);
+            border-color: #3498db;
+        }
+
+        .location-map {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #34495e, #3498db);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .location-info {
+            padding: 2.5rem 2.5rem;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.8rem;
+            color: #2c3e50;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .location-detail {
+            margin-bottom: 1.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .location-detail:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .location-detail-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3498db;
+            flex-shrink: 0;
+            font-size: 1.4rem;
+            border: 1px solid #d4e9f7;
+        }
+
+        .location-detail-text {
+            color: #7f8c8d;
+            line-height: 1.8;
+        }
+
+        .location-detail-text strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        /* Secciones con imagen */
+        .section-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .section-image {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .section-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-placeholder-text {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            text-align: center;
+            padding: 0.8rem 1rem;
+            background: #f8f9fa;
+            border: 1px solid #ecf0f1;
+            border-top: none;
+            border-radius: 0 0 15px 15px;
+            margin: -4px 0 0 0;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .section-content {
+            padding-right: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-with-image {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-content {
+                padding-right: 0;
+            }
+
+            .location-card {
+                grid-template-columns: 1fr;
+            }
+
+            .location-map {
+                height: 250px;
+            }
+
+            .location-info {
+                padding: 2.5rem 1.8rem;
+            }
         }
 
         /* WhatsApp Float Button */
@@ -617,16 +879,23 @@
 
         /* Footer */
         footer {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: #ecf0f1;
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(52, 152, 219, 0.2);
         }
 
         footer p {
             margin: 0;
-            opacity: 0.9;
+            opacity: 0.85;
             font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        footer p:first-child {
+            font-weight: 500;
+            margin-bottom: 0.8rem;
         }
 
         /* Responsive */
@@ -739,7 +1008,20 @@
             }
 
             .service-card {
-                padding: 2.5rem 1.5rem;
+                overflow: hidden;
+            }
+
+            .service-card-image {
+                height: 180px;
+            }
+
+            .service-card-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-image-placeholder {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
             }
 
             .features-grid {
@@ -867,23 +1149,31 @@
     <!-- Quiénes Somos -->
     <section class="about" id="about">
         <h2>Quiénes Somos</h2>
-        <div class="about-content">
-            <p>
-                Nuestra empresa fue creada en <strong>octubre del año 2019</strong>, una empresa familiar donde nuestro objetivo inicial era la venta de café. Sin embargo, con el paso del tiempo nos fuimos dando cuenta que necesitábamos reinventarnos, ya que el mercado iba cambiando.
-            </p>
-            <p>
-                Por lo que pusimos todos nuestros esfuerzos en la venta de platos preparados como <strong>colaciones ejecutivas</strong>, teniendo una gran aceptación de parte de nuestra clientela, dándonos las herramientas para mantenernos en el tiempo y buscar más oportunidades para ir creciendo cada día más.
-            </p>
-            
-            <div class="mission-vision">
-                <div class="card">
-                    <h3>Misión</h3>
-                    <p>Entregar un producto de calidad para cada necesidad de nuestros clientes, garantizando satisfacción en cada servicio.</p>
+        <div class="section-with-image">
+            <div class="section-content">
+                <div class="about-content">
+                    <p>
+                        Nuestra empresa fue creada en <strong>octubre del año 2019</strong>, una empresa familiar donde nuestro objetivo inicial era la venta de café. Sin embargo, con el paso del tiempo nos fuimos dando cuenta que necesitábamos reinventarnos, ya que el mercado iba cambiando.
+                    </p>
+                    <p>
+                        Por lo que pusimos todos nuestros esfuerzos en la venta de platos preparados como <strong>colaciones ejecutivas</strong>, teniendo una gran aceptación de parte de nuestra clientela, dándonos las herramientas para mantenernos en el tiempo y buscar más oportunidades para ir creciendo cada día más.
+                    </p>
+                    
+                    <div class="mission-vision">
+                        <div class="card">
+                            <h3>Misión</h3>
+                            <p>Entregar un producto de calidad para cada necesidad de nuestros clientes, garantizando satisfacción en cada servicio.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Visión</h3>
+                            <p>Perdurar en el tiempo, expandirnos a nuevos mercados y captar nuevos clientes, asegurando un crecimiento sólido y sostenible.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Visión</h3>
-                    <p>Perdurar en el tiempo, expandirnos a nuevos mercados y captar nuevos clientes, asegurando un crecimiento sólido y sostenible.</p>
-                </div>
+            </div>
+            <div class="section-image">
+                <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2017/08/10/5e997fb256547.jpeg" alt="Equipo Valentina en la cocina">
+                <p class="image-placeholder-text">* Imagen de referencia. Se actualizará con la foto real del equipo</p>
             </div>
         </div>
     </section>
@@ -895,16 +1185,34 @@
         
         <div class="services-grid">
             <div class="service-card">
-                <h3>Colaciones Empresariales</h3>
-                <p>Menús variados y equilibrados diseñados especialmente para el trabajador, con opciones nutritivas y deliciosas.</p>
+                <div class="service-card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2i-fg5_3-0CXL6naBPLvKLihgHq8NO6U8g&s" alt="Colaciones Empresariales">
+                </div>
+                <p class="service-image-placeholder">* Imagen de referencia</p>
+                <div class="service-card-content">
+                    <h3>Colaciones Empresariales</h3>
+                    <p>Menús variados y equilibrados diseñados especialmente para el trabajador, con opciones nutritivas y deliciosas.</p>
+                </div>
             </div>
             <div class="service-card">
-                <h3>Alimentación Preparada</h3>
-                <p>Platos preparados con los más altos estándares de calidad e higiene, listos para servir.</p>
+                <div class="service-card-image">
+                    <img src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?w=500&h=220&fit=crop" alt="Alimentación Preparada">
+                </div>
+                <p class="service-image-placeholder">* Imagen de referencia</p>
+                <div class="service-card-content">
+                    <h3>Alimentación Preparada</h3>
+                    <p>Platos preparados con los más altos estándares de calidad e higiene, listos para servir.</p>
+                </div>
             </div>
             <div class="service-card">
-                <h3>Alimentación Fría</h3>
-                <p>Opciones frescas y saludables, ideales para cualquier momento del día laboral.</p>
+                <div class="service-card-image">
+                    <img src="https://cdn7.kiwilimon.com/ss_secreto/2579/640x640/p_16016.jpg.jpg" alt="Alimentación Fría">
+                </div>
+                <p class="service-image-placeholder">* Imagen de referencia</p>
+                <div class="service-card-content">
+                    <h3>Alimentación Fría</h3>
+                    <p>Opciones frescas y saludables, ideales para cualquier momento del día laboral.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -945,16 +1253,51 @@
     <!-- Contacto -->
     <section class="contact" id="contact">
         <h2>Contáctanos</h2>
-        <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Estamos aquí para atender tus necesidades</p>
+        <p class="section-subtitle" style="color: rgba(44,62,80,0.7);">Visítanos o contáctanos para más información</p>
         
         <div class="contact-grid">
-            <div class="contact-card">
-                <h3>Correo Electrónico</h3>
-                <a href="mailto:comercialvalentina2020@gmail.com">comercialvalentina2020@gmail.com</a>
-            </div>
-            <div class="contact-card">
-                <h3>WhatsApp</h3>
-                <a href="https://wa.me/56992966111" target="_blank">+569 9296 6111</a>
+            <div class="location-card">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.3098272945267!2d-70.39!3d-27.37!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96b7d8c%3A0x0!2sValentina%20Colaciones!5e0!3m2!1ses!2scl!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="location-info">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="location-detail">
+                        <div class="location-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="location-detail-text">
+                            <strong>Dirección</strong>
+                            * Por confirmar - Copiapó, Región de Atacama
+                        </div>
+                    </div>
+                    <div class="location-detail">
+                        <div class="location-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="location-detail-text">
+                            <strong>Horario de Atención</strong>
+                            Lunes a Viernes: 8:00 AM - 6:00 PM
+                        </div>
+                    </div>
+                    <div class="location-detail">
+                        <div class="location-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="location-detail-text">
+                            <strong>Teléfono</strong>
+                            +569 9296 6111
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
