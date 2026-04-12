@@ -262,12 +262,13 @@
         section h2 {
             font-size: 2.8rem;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            color: #ffffff;
             text-align: center;
             position: relative;
             padding-bottom: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         section h2::after {
@@ -284,7 +285,7 @@
 
         .section-subtitle {
             text-align: center;
-            color: #7f8c8d;
+            color: #e8f0f9;
             font-size: 1.15rem;
             margin-bottom: 4rem;
             font-weight: 300;
@@ -293,7 +294,7 @@
 
         /* Quiénes Somos */
         .about {
-            background: #ffffff;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
         }
 
         .about-content {
@@ -301,11 +302,13 @@
             margin: 0 auto;
             line-height: 1.8;
             font-size: 1.1rem;
+            color: #ecf0f1;
         }
 
         .about-content p {
             margin-bottom: 1.5rem;
             text-align: justify;
+            color: #e8f0f9;
         }
 
         .mission-vision {
@@ -316,28 +319,31 @@
         }
 
         .card {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
             padding: 2.5rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             transition: all 0.4s ease;
-            border: 1px solid #ecf0f1;
+            border: 1px solid #3b5998;
+            color: #ecf0f1;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.15);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
             border-color: #3498db;
+            background: linear-gradient(135deg, #3b5998 0%, #34495e 100%);
         }
 
         .card h3 {
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 1.4rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .card-icon {
@@ -347,7 +353,7 @@
 
         /* Servicios */
         .services {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1f2d3d 0%, #2c3e50 100%);
         }
 
         .services-grid {
@@ -383,14 +389,14 @@
         }
 
         .service-card {
-            background: white;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
+            color: #ecf0f1;
             padding: 0;
             border-radius: 15px;
             text-align: center;
             transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border: 1px solid #ecf0f1;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid #3b5998;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -426,9 +432,9 @@
             color: #95a5a6;
             text-align: center;
             padding: 0.6rem 1rem;
-            background: #f8f9fa;
-            border-top: 1px solid #ecf0f1;
-            border-bottom: 1px solid #ecf0f1;
+            background: linear-gradient(135deg, #2c3e50 0%, #2a3d4e 100%);
+            border-top: 1px solid #3b5998;
+            border-bottom: 1px solid #3b5998;
             margin: 0;
             font-style: italic;
             font-weight: 500;
@@ -448,8 +454,9 @@
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.3);
             border-color: #3498db;
+            background: linear-gradient(135deg, #3b5998 0%, #34495e 100%);
         }
 
         .service-card:hover::before {
@@ -465,19 +472,20 @@
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1.2rem;
-            color: #2c3e50;
+            color: #ffffff;
             font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .service-card p {
             font-size: 1rem;
             line-height: 1.8;
-            color: #7f8c8d;
+            color: #e8f0f9;
         }
 
         /* Diferenciador */
         .differentiator {
-            background: white;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
         }
 
         .features-grid {
@@ -488,14 +496,15 @@
         }
 
         .feature {
-            background: white;
+            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
             padding: 2.5rem 2rem;
             border-radius: 10px;
             text-align: left;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-            border: 1px solid #ecf0f1;
+            border: 1px solid #3b5998;
             position: relative;
+            color: #ecf0f1;
         }
 
         .feature::before {
@@ -513,8 +522,9 @@
 
         .feature:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(52,152,219,0.12);
-            border-color: #d9ecf7;
+            box-shadow: 0 8px 20px rgba(52,152,219,0.2);
+            border-color: #3498db;
+            background: linear-gradient(135deg, #3b5998 0%, #36505f 100%);
         }
 
         .feature:hover::before {
@@ -530,11 +540,12 @@
         }
 
         .feature h3 {
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 1.2rem;
             margin-bottom: 0.8rem;
             font-weight: 600;
             transition: color 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .feature:hover h3 {
@@ -542,7 +553,7 @@
         }
 
         .feature p {
-            color: #7f8c8d;
+            color: #e8f0f9;
             line-height: 1.8;
             font-size: 0.95rem;
             font-weight: 400;
@@ -550,14 +561,15 @@
 
         /* Contacto */
         .contact {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            color: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #1f2d3d 100%);
+            color: #ecf0f1;
         }
 
         .contact h2 {
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 2.8rem;
             font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .contact h2::after {
@@ -572,15 +584,16 @@
         }
 
         .contact-card {
-            background: white;
+            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
             padding: 2.5rem 2rem;
             border-radius: 12px;
             text-align: center;
-            border: 1px solid #ecf0f1;
+            border: 1px solid #3b5998;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: relative;
             overflow: hidden;
+            color: #ecf0f1;
         }
 
         .contact-card::before {
@@ -598,8 +611,9 @@
 
         .contact-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.3);
             border-color: #3498db;
+            background: linear-gradient(135deg, #3b5998 0%, #36505f 100%);
         }
 
         .contact-card:hover::before {
@@ -615,9 +629,10 @@
         .contact-card h3 {
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            color: #ffffff;
             font-weight: 700;
             letter-spacing: -0.3px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .contact-card a {
@@ -636,13 +651,13 @@
 
         /* Ubicación Card */
         .location-card {
-            background: white;
+            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
             padding: 0;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #ecf0f1;
+            border: 1px solid #3b5998;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             max-width: 900px;
             margin: 0 auto;
             display: grid;
@@ -676,18 +691,20 @@
 
         .location-info {
             padding: 2.5rem 2.5rem;
-            background: white;
+            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: #ecf0f1;
         }
 
         .location-info h3 {
             font-size: 1.5rem;
             margin-bottom: 1.8rem;
-            color: #2c3e50;
+            color: #ffffff;
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .location-detail {
@@ -696,7 +713,7 @@
             align-items: flex-start;
             gap: 1.2rem;
             padding-bottom: 1.6rem;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid #3b5998;
         }
 
         .location-detail:last-child {
@@ -708,7 +725,7 @@
         .location-detail-icon {
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
+            background: linear-gradient(135deg, #455a6f 0%, #3d5263 100%);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -716,20 +733,21 @@
             color: #3498db;
             flex-shrink: 0;
             font-size: 1.4rem;
-            border: 1px solid #d4e9f7;
+            border: 1px solid #3b5998;
         }
 
         .location-detail-text {
-            color: #7f8c8d;
+            color: #e8f0f9;
             line-height: 1.8;
         }
 
         .location-detail-text strong {
-            color: #2c3e50;
+            color: #ffffff;
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 700;
             font-size: 1.05rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* Secciones con imagen */
@@ -759,8 +777,8 @@
             color: #95a5a6;
             text-align: center;
             padding: 0.8rem 1rem;
-            background: #f8f9fa;
-            border: 1px solid #ecf0f1;
+            background: linear-gradient(135deg, #2c3e50 0%, #2a3d4e 100%);
+            border: 1px solid #3b5998;
             border-top: none;
             border-radius: 0 0 15px 15px;
             margin: -4px 0 0 0;
@@ -1144,8 +1162,17 @@
     <!-- Botones Flotantes -->
     <!-- Botón Gmail Flotante -->
     <a href="mailto:comercialvalentina2020@gmail.com" class="gmail-float" title="Enviar correo electrónico">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <!-- Sobre blanco base -->
+            <rect x="2" y="6" width="20" height="14" rx="1.5" fill="white"/>
+            <!-- Línea diagonal roja -->
+            <path d="M12 13L2 6" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Línea diagonal amarilla -->
+            <path d="M12 13L8 16.5" stroke="#FBBC04" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Línea diagonal azul -->
+            <path d="M12 13L16 16.5" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Línea diagonal roja derecha -->
+            <path d="M12 13L22 6" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
     </a>
     
@@ -1316,7 +1343,7 @@
         <div class="contact-grid">
             <div class="location-card">
                 <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.3098272945267!2d-70.39!3d-27.37!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96b7d8c%3A0x0!2sValentina%20Colaciones!5e0!3m2!1ses!2scl!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.738726845214!2d-70.3321!3d-27.3668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ba57d5b7c4b8d1%3A0x0!2sColipi%20631%2C%201530455%20Copiapo!5e0!3m2!1ses!2scl!4v1712893200000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="location-info">
                     <h3>Nuestra Ubicación</h3>
@@ -1329,7 +1356,7 @@
                         </div>
                         <div class="location-detail-text">
                             <strong>Dirección</strong>
-                            * Por confirmar - Copiapó, Región de Atacama
+                            Colipi 631, 1530455 Copiapó, Atacama
                         </div>
                     </div>
                     <div class="location-detail">
