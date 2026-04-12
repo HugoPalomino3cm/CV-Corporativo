@@ -384,21 +384,8 @@
 
         @media (max-width: 768px) {
             .services-grid {
-                display: flex;
-                grid-template-columns: unset;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-behavior: smooth;
-                scroll-snap-type: x mandatory;
-                padding-bottom: 1rem;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .service-card {
-                min-width: calc(100vw - 5rem);
-                flex-shrink: 0;
-                scroll-snap-align: start;
             }
 
             .service-card:nth-child(7) {
