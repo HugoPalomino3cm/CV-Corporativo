@@ -384,8 +384,21 @@
 
         @media (max-width: 768px) {
             .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                grid-template-columns: unset;
                 gap: 1.5rem;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-behavior: smooth;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 1rem;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .service-card {
+                min-width: calc(100vw - 5rem);
+                flex-shrink: 0;
+                scroll-snap-align: start;
             }
 
             .service-card:nth-child(7) {
@@ -583,7 +596,7 @@
 
         .contact-card {
             background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
-            padding: 2.5rem 2rem;
+            padding: 0;
             border-radius: 12px;
             text-align: center;
             border: 1px solid #3b5998;
@@ -592,6 +605,8 @@
             position: relative;
             overflow: hidden;
             color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
         }
 
         .contact-card::before {
@@ -688,12 +703,13 @@
         }
 
         .location-info {
-            padding: 2.5rem 2.5rem;
+            padding: 2.5rem 2rem;
             background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             color: #ecf0f1;
+            text-align: left;
         }
 
         .location-info h3 {
@@ -798,12 +814,16 @@
                 padding-right: 0;
             }
 
-            .location-card {
-                grid-template-columns: 1fr;
+            .contact-card {
+                flex-direction: column;
             }
 
             .location-map {
                 height: 250px;
+            }
+
+            .location-info {
+                padding: 2.5rem 1.8rem;
             }
 
             .location-info {
@@ -1045,10 +1065,21 @@
             }
 
             .services-grid {
-                grid-template-columns: 1fr;
+                display: flex;
+                grid-template-columns: unset;
                 gap: 1.5rem;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-behavior: smooth;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 1rem;
+                -webkit-overflow-scrolling: touch;
+            }
 
             .service-card {
+                min-width: 100%;
+                flex-shrink: 0;
+                scroll-snap-align: start;
                 overflow: hidden;
             }
 
@@ -1117,6 +1148,10 @@
             .card h3,
             .contact-card h3 {
                 font-size: 1.2rem;
+            }
+
+            .location-map {
+                height: 200px;
             }
         }
 
