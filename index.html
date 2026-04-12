@@ -259,16 +259,19 @@
             margin: 0 auto;
         }
 
+        .card p {
+            color: #000000;
+            font-weight: 500;
+        }
+
         section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
             color: #ffffff;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
         section h2::after {
@@ -311,6 +314,10 @@
             color: #e8f0f9;
         }
 
+        .about-content .card p {
+            color: #000000 !important;
+        }
+
         .mission-vision {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -319,31 +326,29 @@
         }
 
         .card {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            background: #ffffff;
             padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-            border: 1px solid #3b5998;
-            color: #ecf0f1;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 3px solid #3498db;
+            color: #000000;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
-            border-color: #3498db;
-            background: linear-gradient(135deg, #3b5998 0%, #34495e 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            border-left-color: #3498db;
         }
 
         .card h3 {
-            color: #ffffff;
+            color: #000000;
             font-size: 1.4rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-weight: 600;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .card-icon {
@@ -406,7 +411,7 @@
         .service-card-image {
             width: 100%;
             height: 220px;
-            background: linear-gradient(135deg, #3498db, #2ecc71);
+            background: #3498db;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -447,7 +452,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+            background: #3498db;
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -514,7 +519,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, #3498db 0%, #3498db 50%, #2ecc71 100%);
+            background: #3498db;
             border-radius: 10px 10px 0 0;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -565,13 +570,6 @@
             color: #ecf0f1;
         }
 
-        .contact h2 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
         .contact h2::after {
             background: #3498db;
         }
@@ -603,7 +601,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+            background: #3498db;
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
@@ -1341,7 +1339,7 @@
         <p class="section-subtitle" style="color: rgba(44,62,80,0.7);">Visítanos o contáctanos para más información</p>
         
         <div class="contact-grid">
-            <div class="location-card">
+            <div class="contact-card">
                 <div class="location-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.738726845214!2d-70.3321!3d-27.3668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ba57d5b7c4b8d1%3A0x0!2sColipi%20631%2C%201530455%20Copiapo!5e0!3m2!1ses!2scl!4v1712893200000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
