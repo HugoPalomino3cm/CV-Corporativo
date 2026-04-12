@@ -1065,21 +1065,11 @@
             }
 
             .services-grid {
-                display: flex;
-                grid-template-columns: unset;
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-behavior: smooth;
-                scroll-snap-type: x mandatory;
-                padding-bottom: 1rem;
-                -webkit-overflow-scrolling: touch;
             }
 
             .service-card {
-                min-width: 100%;
-                flex-shrink: 0;
-                scroll-snap-align: start;
                 overflow: hidden;
             }
 
