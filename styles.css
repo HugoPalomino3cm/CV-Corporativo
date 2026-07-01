@@ -48,6 +48,8 @@ nav.scrolled {
     color: #2c3e50;
     letter-spacing: -0.5px;
     transition: color 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .nav-logo:hover {
@@ -58,6 +60,10 @@ nav.scrolled {
     display: flex;
     gap: 2rem;
     list-style: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .nav-menu a {
@@ -68,6 +74,22 @@ nav.scrolled {
     transition: all 0.3s ease;
     position: relative;
     padding: 0.5rem 0;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+}
+
+.nav-menu a:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.nav-menu a.active {
+    color: #3498db;
+}
+
+.nav-menu a.active::after {
+    width: 100%;
 }
 
 .nav-menu a::after {
@@ -90,14 +112,51 @@ nav.scrolled {
 }
 
 .nav-cta {
-    background: #3498db;
-    color: white !important;
+    background: transparent;
+    color: #2c3e50 !important;
     padding: 0.7rem 1.8rem;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.nav-cta:hover {
+    background: transparent;
+    color: #3498db !important;
+    transform: none;
+}
+
+.nav-cta:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.nav-cta:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.nav-cta.active {
+    background: #3498db;
+    color: white !important;
+}
+
+.nav-cta.active:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
 }
 
 .nav-cta::after {
@@ -116,6 +175,8 @@ nav.scrolled {
     gap: 5px;
     cursor: pointer;
     z-index: 1001;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .mobile-menu-btn span {
