@@ -3,1190 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentina - Colaciones Empresariales de Calidad</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233498db' rx='20'/><text x='50' y='70' font-size='70' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial, sans-serif'>V</text></svg>">
+    <title>Comercial Valentina - Colaciones Empresariales de Calidad</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233498db' rx='20'/><text x='50' y='70' font-size='50' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial, sans-serif'>CV</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            overflow-x: hidden;
-            background: #ffffff;
-        }
-
-        /* Navegación */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 3rem;
-        }
-
-        .nav-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c3e50;
-            letter-spacing: -0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-logo:hover {
-            color: #3498db;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #3498db;
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #3498db;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: #3498db;
-            color: white !important;
-            padding: 0.7rem 1.8rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta::after {
-            display: none;
-        }
-
-        .nav-cta:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #2c3e50;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* Portada / Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 152, 219, 0.9) 100%), 
-                        url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h100v100H0z" fill="%23f8f9fa"/%3E%3C/svg%3E');
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            padding-top: 100px;
-            position: relative;
-            overflow: hidden;
-            background-attachment: fixed;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.08" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path></svg>') repeat-x;
-            background-size: 100% 120px;
-            opacity: 0.4;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(46, 204, 113, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 1;
-        }
-
-        .logo {
-            width: 140px;
-            height: 140px;
-            background: white;
-            border-radius: 50%;
-            margin: 0 auto 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #3498db;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero .tagline {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            max-width: 700px;
-            line-height: 1.8;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* Secciones generales */
-        section {
-            padding: 6rem 3rem;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .card p {
-            color: #000000;
-            font-weight: 500;
-        }
-
-        section h2 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #3498db;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #e8f0f9;
-            font-size: 1.15rem;
-            margin-bottom: 4rem;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        /* Quiénes Somos */
-        .about {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #ecf0f1;
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-            color: #e8f0f9;
-        }
-
-        .about-content .card p {
-            color: #000000 !important;
-        }
-
-        .mission-vision {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-left: 3px solid #3498db;
-            color: #000000;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-            border-left-color: #3498db;
-        }
-
-        .card h3 {
-            color: #000000;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            display: none;
-        }
-
-        /* Servicios */
-        .services {
-            background: linear-gradient(135deg, #1f2d3d 0%, #2c3e50 100%);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card:nth-child(7) {
-            grid-column: 2 / 3;
-        }
-
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .service-card:nth-child(7) {
-                grid-column: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .service-card:nth-child(7) {
-                grid-column: auto;
-            }
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
-            color: #ecf0f1;
-            padding: 0;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            border: 1px solid #3b5998;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card-image {
-            width: 100%;
-            height: 220px;
-            background: #3498db;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-card-content {
-            padding: 2.5rem 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .service-image-placeholder {
-            font-size: 0.8rem;
-            color: #95a5a6;
-            text-align: center;
-            padding: 0.6rem 1rem;
-            background: linear-gradient(135deg, #2c3e50 0%, #2a3d4e 100%);
-            border-top: 1px solid #3b5998;
-            border-bottom: 1px solid #3b5998;
-            margin: 0;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: #3498db;
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.3);
-            border-color: #3498db;
-            background: linear-gradient(135deg, #3b5998 0%, #34495e 100%);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
-            color: #ffffff;
-            font-weight: 600;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-card p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #e8f0f9;
-        }
-
-        /* Diferenciador */
-        .differentiator {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .feature {
-            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
-            text-align: left;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            border: 1px solid #3b5998;
-            position: relative;
-            color: #ecf0f1;
-        }
-
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #3498db;
-            border-radius: 10px 10px 0 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(52,152,219,0.2);
-            border-color: #3498db;
-            background: linear-gradient(135deg, #3b5998 0%, #36505f 100%);
-        }
-
-        .feature:hover::before {
-            opacity: 1;
-        }
-
-        .feature-number {
-            display: none;
-        }
-
-        .feature-icon-box {
-            display: none;
-        }
-
-        .feature h3 {
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature:hover h3 {
-            color: #3498db;
-        }
-
-        .feature p {
-            color: #e8f0f9;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        /* Contacto */
-        .contact {
-            background: linear-gradient(135deg, #2c3e50 0%, #1f2d3d 100%);
-            color: #ecf0f1;
-        }
-
-        .contact h2::after {
-            background: #3498db;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
-            padding: 0;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #3b5998;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-            color: #ecf0f1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #3498db;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.3);
-            border-color: #3498db;
-            background: linear-gradient(135deg, #3b5998 0%, #36505f 100%);
-        }
-
-        .contact-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .contact-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-card a {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 1.1rem;
-            word-break: break-word;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .contact-card a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-
-        /* Ubicación Card */
-        .location-card {
-            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
-            padding: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #3b5998;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .location-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(52, 152, 219, 0.2);
-            border-color: #3498db;
-        }
-
-        .location-map {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #34495e, #3498db);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .location-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .location-info {
-            padding: 2.5rem 2rem;
-            background: linear-gradient(135deg, #36505f 0%, #2e4555 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #ecf0f1;
-            text-align: left;
-        }
-
-        .location-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.8rem;
-            color: #ffffff;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .location-detail {
-            margin-bottom: 1.6rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            padding-bottom: 1.6rem;
-            border-bottom: 1px solid #3b5998;
-        }
-
-        .location-detail:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .location-detail-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #455a6f 0%, #3d5263 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3498db;
-            flex-shrink: 0;
-            font-size: 1.4rem;
-            border: 1px solid #3b5998;
-        }
-
-        .location-detail-text {
-            color: #e8f0f9;
-            line-height: 1.8;
-        }
-
-        .location-detail-text strong {
-            color: #ffffff;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Secciones con imagen */
-        .section-with-image {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .section-image {
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .section-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .image-placeholder-text {
-            font-size: 0.85rem;
-            color: #95a5a6;
-            text-align: center;
-            padding: 0.8rem 1rem;
-            background: linear-gradient(135deg, #2c3e50 0%, #2a3d4e 100%);
-            border: 1px solid #3b5998;
-            border-top: none;
-            border-radius: 0 0 15px 15px;
-            margin: -4px 0 0 0;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .section-content {
-            padding-right: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .section-with-image {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-content {
-                padding-right: 0;
-            }
-
-            .contact-card {
-                flex-direction: column;
-            }
-
-            .location-map {
-                height: 250px;
-            }
-
-            .location-info {
-                padding: 2.5rem 1.8rem;
-            }
-
-            .location-info {
-                padding: 2.5rem 1.8rem;
-            }
-        }
-
-        /* WhatsApp Float Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #20ba5a;
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        .whatsapp-float::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #25d366;
-            animation: pulse-whatsapp 2s infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse-whatsapp {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-        /* Gmail Float Button */
-        .gmail-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 100px;
-            right: 30px;
-            background-color: #EA4335;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(234, 67, 53, 0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .gmail-float:hover {
-            background-color: #d33426;
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(234, 67, 53, 0.6);
-        }
-
-        .gmail-float::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #EA4335;
-            animation: pulse-gmail 2s infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse-gmail {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: #ecf0f1;
-            text-align: center;
-            padding: 4rem 2rem;
-            border-top: 1px solid rgba(52, 152, 219, 0.2);
-        }
-
-        footer p {
-            margin: 0;
-            opacity: 0.85;
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        footer p:first-child {
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 0;
-                flex-direction: column;
-                background: rgba(255, 255, 255, 0.98);
-                width: 100%;
-                height: 100vh;
-                text-align: center;
-                transition: left 0.3s ease;
-                padding-top: 80px;
-                gap: 0;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-menu li {
-                margin: 1rem 0;
-            }
-
-            .nav-menu a {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
-                display: block;
-            }
-
-            .nav-cta {
-                display: inline-block;
-                margin-top: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-logo {
-                font-size: 1.5rem;
-            }
-
-            .hero {
-                padding: 2rem 1.5rem;
-                padding-top: 80px;
-                min-height: 90vh;
-            }
-
-            .logo {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-                margin-bottom: 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero .tagline {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem !important;
-            }
-
-            section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .about-content {
-                font-size: 1rem;
-            }
-
-            .mission-vision {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .card {
-                padding: 2rem 1.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .service-card {
-                overflow: hidden;
-            }
-
-            .service-card-image {
-                height: 180px;
-            }
-
-            .service-card-content {
-                padding: 2rem 1.5rem;
-            }
-
-            .service-image-placeholder {
-                padding: 0.5rem 1rem;
-                font-size: 0.75rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-card {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 26px;
-            }
-
-            .gmail-float {
-                width: 55px;
-                height: 55px;
-                bottom: 85px;
-                right: 20px;
-                font-size: 26px;
-            }
-
-            footer {
-                padding: 2.5rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero .tagline {
-                font-size: 0.9rem;
-            }
-
-            section h2 {
-                font-size: 1.6rem;
-            }
-
-            .service-card h3,
-            .card h3,
-            .contact-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .location-map {
-                height: 200px;
-            }
-        }
-
-        /* Animaciones */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-    </style>
+    
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navegación -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Valentina</div>
+            <div class="nav-logo">Comercial Valentina</div>
             <div class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#about" class="nav-link">Nosotros</a></li>
                 <li><a href="#services" class="nav-link">Servicios</a></li>
-                <li><a href="#differentiator" class="nav-link">Diferenciadores</a></li>
+                <li><a href="#logistica" class="nav-link">Logística</a></li>
+                <li><a href="#tarifas" class="nav-link">Precios</a></li>
                 <li><a href="#contact" class="nav-cta nav-link">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Botones Flotantes -->
-    <!-- Botón Gmail Flotante -->
     <a href="mailto:comercialvalentina2020@gmail.com" class="gmail-float" title="Enviar correo electrónico">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <!-- Sobre blanco base -->
             <rect x="2" y="6" width="20" height="14" rx="1.5" fill="white"/>
-            <!-- Línea diagonal roja -->
             <path d="M12 13L2 6" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Línea diagonal amarilla -->
             <path d="M12 13L8 16.5" stroke="#FBBC04" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Línea diagonal azul -->
             <path d="M12 13L16 16.5" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Línea diagonal roja derecha -->
             <path d="M12 13L22 6" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
     </a>
     
-    <!-- Botón WhatsApp Flotante -->
     <a href="https://wa.me/56992966111" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
         <svg width="30" height="30" viewBox="0 0 32 32" fill="white">
             <path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.738 5.477 2.031 7.773L0 32l8.428-2.209A15.936 15.936 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.098 23.002c-.348.982-2.039 1.805-2.828 1.93-.75.118-1.727.163-2.789-.176-1.258-.402-2.871-.937-4.941-2.063-4.414-2.402-7.273-6.837-7.492-7.152-.219-.316-1.789-2.387-1.789-4.551 0-2.164 1.133-3.227 1.531-3.668.398-.441.871-.551 1.168-.551.297 0 .59.012.844.035.27.023.633-.102.992.754.359.86 1.254 3.094 1.363 3.32.11.219.18.473.039.77-.141.297-.211.477-.422.738-.211.262-.445.586-.633.789-.211.238-.434.496-.188.969.246.473 1.102 1.824 2.363 2.949 1.629 1.453 2.996 1.906 3.422 2.125.426.219.676.18.922-.105.246-.285.996-1.164 1.262-1.563.266-.398.531-.332.895-.199.363.133 2.316 1.094 2.719 1.293.402.203.668.301.766.469.098.164.098.938-.25 1.918z"/>
@@ -1196,8 +51,8 @@
     <!-- Portada -->
     <section class="hero" id="inicio">
         <div class="hero-content fade-in">
-            <div class="logo">V</div>
-            <h1>Valentina</h1>
+            <div class="logo">CV</div>
+            <h1>Comercial Valentina</h1>
             <p class="tagline">Colaciones Empresariales de Calidad</p>
             <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Alimentación preparada con los más altos estándares para tu empresa</p>
         </div>
@@ -1214,27 +69,36 @@
         <div class="section-with-image">
             <div class="section-content">
                 <div class="about-content">
+                    <h3 style="color: #3498db; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">Reseña de la Empresa</h3>
                     <p>
-                        Nuestra empresa fue creada en <strong>octubre del año 2019</strong>, una empresa familiar donde nuestro objetivo inicial era la venta de café. Sin embargo, con el paso del tiempo nos fuimos dando cuenta que necesitábamos reinventarnos, ya que el mercado iba cambiando.
+                        Nuestra empresa fue fundada en octubre de 2019 como un emprendimiento familiar, cuyo propósito inicial fue la creación de una cafetería al paso. Con el tiempo, y en respuesta a la evolución de las necesidades del mercado y de nuestros clientes, identificamos nuevas oportunidades de crecimiento, adaptando nuestro modelo de negocio para ampliar nuestra oferta de servicios y responder de manera eficiente a las nuevas demandas.
                     </p>
                     <p>
-                        Por lo que pusimos todos nuestros esfuerzos en la venta de platos preparados como <strong>colaciones ejecutivas</strong>, teniendo una gran aceptación de parte de nuestra clientela, dándonos las herramientas para mantenernos en el tiempo y buscar más oportunidades para ir creciendo cada día más.
+                        Como resultado de este proceso, orientamos nuestra actividad a la elaboración y comercialización de colaciones ejecutivas, platos preparados y servicios de alimentación para empresas e instituciones, logrando una excelente aceptación por parte de nuestros clientes. Esto nos ha permitido consolidarnos en el mercado, fortalecer nuestra operación y mantener un crecimiento sostenido, basado en la calidad de nuestros productos, el cumplimiento de nuestros compromisos y la mejora continua de nuestros procesos.
+                    </p>
+                    <p>
+                        Actualmente, ofrecemos una amplia variedad de preparaciones, elaboradas con materias primas de calidad y bajo estrictos estándares de higiene e inocuidad alimentaria. Además de nuestras colaciones ejecutivas, contamos con alternativas saludables y menús adaptados para personas con requerimientos alimentarios específicos o restricciones por indicación médica, tales como diabetes, hipertensión, intolerancias o alergias alimentarias, proporcionando soluciones acordes a las necesidades de cada cliente.
+                    </p>
+                    <p>
+                        Nuestra experiencia, compromiso y capacidad de adaptación nos han permitido establecer relaciones de confianza con nuestros clientes, entregando un servicio oportuno, responsable y de alto estándar. Nos enfocamos en la mejora continua, la atención personalizada y el cumplimiento de los más altos estándares de calidad, con el objetivo de ser un aliado confiable para empresas e instituciones que buscan un servicio de alimentación eficiente y de excelencia.
                     </p>
                     
                     <div class="mission-vision">
                         <div class="card">
                             <h3>Misión</h3>
-                            <p>Entregar un producto de calidad para cada necesidad de nuestros clientes, garantizando satisfacción en cada servicio.</p>
+                            <p>Proporcionar alimentos preparados de alta calidad, elaborados bajo estrictos estándares de higiene e inocuidad, ofreciendo un servicio eficiente, confiable y adaptado a las necesidades de cada cliente. Nos comprometemos a entregar soluciones alimentarias que promuevan una alimentación equilibrada, saludable y segura, generando relaciones comerciales duraderas basadas en la confianza, el compromiso y la excelencia.</p>
                         </div>
                         <div class="card">
                             <h3>Visión</h3>
-                            <p>Perdurar en el tiempo, expandirnos a nuevos mercados y captar nuevos clientes, asegurando un crecimiento sólido y sostenible.</p>
+                            <p>Ser una empresa referente en la elaboración y suministro de servicios de alimentación para empresas e instituciones, reconocida por la calidad de nuestros productos, la excelencia de nuestro servicio, la innovación y nuestra capacidad de adaptarnos a las necesidades de cada cliente. Aspiramos a consolidar un crecimiento sólido y sostenible, expandiendo nuestra presencia en nuevos mercados y contribuyendo al bienestar de las personas a través de una alimentación de calidad.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="section-image">
-                <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2017/08/10/5e997fb256547.jpeg" alt="Equipo Valentina en la cocina">
+            
+            <!-- Contenedor de la imagen alineado arriba -->
+            <div class="section-image" style="align-self: flex-start; position: sticky; top: 100px;">
+                <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2017/08/10/5e997fb256547.jpeg" alt="Equipo Comercial Valentina en la cocina">
                 <p class="image-placeholder-text">* Imagen de referencia. Se actualizará con la foto real del equipo</p>
             </div>
         </div>
@@ -1247,66 +111,86 @@
         
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto1.jpeg" alt="Lasaña">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto1.jpeg" alt="Lasaña"></div>
                 <div class="service-card-content">
                     <h3>Lasaña</h3>
                     <p>Lasaña rellena y crujiente con queso fundido. Elaborada de forma artesanal y listo para servir.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto2.jpeg" alt="Caldo de Pollo con Verduras">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto2.jpeg" alt="Caldo de Pollo"></div>
                 <div class="service-card-content">
                     <h3>Caldo de Pollo</h3>
                     <p>Guiso reconfortante con pollo tierno, papas y verduras frescas en caldo aromático casero.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto3.jpeg" alt="Carne al Jugo con Puré">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto3.jpeg" alt="Carne al Jugo"></div>
                 <div class="service-card-content">
                     <h3>Carne al Jugo</h3>
                     <p>Carne tierna en su jugo con vegetales, acompañada de puré cremoso. Plato jugoso y sabroso.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto4.jpeg" alt="Garbanzos en Caldo">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto4.jpeg" alt="Garbanzos en Caldo"></div>
                 <div class="service-card-content">
                     <h3>Garbanzos en Caldo</h3>
                     <p>Legumbres guisadas con especias y caldo casero. Opción proteica vegetal nutritiva.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto5.jpeg" alt="Bowl de Pollo y Vegetales">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto5.jpeg" alt="Bowl de Pollo"></div>
                 <div class="service-card-content">
                     <h3>Bowl de Pollo Fresco</h3>
                     <p>Pollo desmenuzado con ensalada de verduras variadas y aderezo fresco. Opción saludable.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto6.jpeg" alt="Carne Asada con Arroz y Zanahorias">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto6.jpeg" alt="Carne con Arroz"></div>
                 <div class="service-card-content">
                     <h3>Carne con Arroz</h3>
                     <p>Proteína premium asada con arroz blanco y zanahorias caramelizadas. Plato completo y sabroso.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-card-image">
-                    <img src="imagenes/foto7.jpeg" alt="Pollo con Papas y Arroz">
-                </div>
+                <div class="service-card-image"><img src="imagenes/foto7.jpeg" alt="Pollo con Papas"></div>
                 <div class="service-card-content">
                     <h3>Pollo con Papas y Arroz</h3>
-                    <p>Pollo tierno acompañado de papas doradas, arroz cremoso y verduras salteadas. Plato completo y nutritivo.</p>
+                    <p>Pollo tierno acompañado de papas doradas, arroz cremoso y verduras salteadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logística y Despacho -->
+    <section class="logistics" id="logistica">
+    <h2>Despacho Seguro y Climatizado</h2>
+    <div class="section-with-image">
+        <div class="section-image truck-card">
+            <img src="imagenes/fotoFurgon.jpeg" alt="Furgón de Reparto DFSK" class="truck-img">
+            <p class="image-placeholder-text">* Imagen ilustrativa del modelo REFRI TRUCK C21 1.3 utilizado para nuestras entregas.</p>
+        </div>
+            <div class="section-content">
+                <div class="about-content">
+                    <p>
+                        Para asegurar que tus colaciones lleguen frescas y en condiciones óptimas a tus instalaciones, en <strong>Comercial Valentina</strong> operamos con un furgón de reparto propio, modelo <strong>DFSK Refri Truck C21</strong>.
+                    </p>
+                    <p>
+                        Nuestra logística está diseñada para no romper nunca la cadena de calidad de los alimentos gracias a un riguroso control de temperatura, ideal para el traslado seguro tanto de platos calientes en sus contenedores térmicos, como de colaciones frías.
+                    </p>
+                    
+                    <div class="mission-vision" style="grid-template-columns: 1fr; margin-top: 2rem;">
+                        <div class="card">
+                            <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Especificaciones Técnicas del Vehículo</h3>
+                            <ul style="list-style: none; color: #34495e; font-size: 0.95rem;">
+                                <li style="margin-bottom: 0.8rem;"><strong>Climatización:</strong> Sistema de frío máximo de hasta -5°C.</li>
+                                <li style="margin-bottom: 0.8rem;"><strong>Capacidad de Carga:</strong> Soporta de manera segura hasta 790 Kg.</li>
+                                <li style="margin-bottom: 0.8rem;"><strong>Volumen:</strong> Amplio volumen de carga de 3,7 m³ (Caja de 2.260 mm de largo).</li>
+                                <li style="margin-bottom: 0.8rem;"><strong>Certificación Oficial:</strong> Cuenta con la Autorización de Alimentos N° 2603278407 del Ministerio de Salud para el transporte de alimentos perecibles que requieren frío.</li>
+                                <li><strong>Rendimiento:</strong> Motor de 1.3 L altamente eficiente para despachos rápidos y puntuales.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1318,31 +202,67 @@
         <p class="section-subtitle">Lo que nos hace diferentes y especiales</p>
         
         <div class="features-grid">
+            <!-- Tarjeta 1 -->
+            <div class="feature" style="border-left: 4px solid #2ecc71;">
+                <h3>Resolución Sanitaria</h3>
+                <p>Operamos bajo el más estricto cumplimiento normativo. Contamos con la <strong>Resolución Exenta N° 250335878</strong> (del 06/02/2025) para la elaboración de platos preparados, garantizando total higiene.</p>
+            </div>
+            
+            <!-- Tarjeta 2 -->
             <div class="feature">
                 <h3>Calidad Garantizada</h3>
-                <p>Utilizamos materias primas de primera calidad en todos nuestros productos</p>
+                <p>Seleccionamos rigurosamente a nuestros proveedores para asegurar ingredientes frescos, nutritivos y de primera categoría en todas las preparaciones diarias de nuestro menú.</p>
             </div>
+            
+            <!-- Tarjeta 3 -->
             <div class="feature">
                 <h3>Altos Estándares</h3>
-                <p>Cumplimos con las normas sanitarias y de calidad más exigentes</p>
+                <p>Implementamos estrictos protocolos de manipulación de alimentos en nuestra cocina, asegurando la inocuidad y la excelencia en cada uno de los procesos de elaboración.</p>
             </div>
+            
+            <!-- Tarjeta 4 -->
             <div class="feature">
                 <h3>Servicio Integral</h3>
-                <p>Nos adaptamos a todas las necesidades específicas de cada cliente</p>
+                <p>Ofrecemos menús variados y nos adaptamos a las necesidades específicas de tu equipo de trabajo, brindando soluciones gastronómicas completas para cualquier tipo de empresa.</p>
             </div>
+            
+            <!-- Tarjeta 5 -->
             <div class="feature">
                 <h3>Experiencia</h3>
-                <p>Más de 5 años sirviendo a empresas con excelencia</p>
+                <p>Desde nuestros inicios en 2019, nos hemos reinventado y perfeccionado constantemente, consolidándonos hoy como un socio confiable en el rubro de la alimentación institucional.</p>
             </div>
-            <div class="feature">
-                <h3>Empresa Familiar</h3>
-                <p>Atención personalizada y cercana en cada servicio</p>
-            </div>
+            
+            <!-- Tarjeta 6 -->
             <div class="feature">
                 <h3>Entregas Puntuales</h3>
-                <p>Garantizamos puntualidad en todas nuestras entregas</p>
+                <p>Nuestro furgón climatizado asegura que tus colaciones lleguen exactamente en el horario acordado y manteniendo la cadena de temperatura ideal hasta tus instalaciones.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Tarifas -->
+    <section class="tarifas" id="tarifas">
+        <h2>Nuestros Valores</h2>
+        <p class="section-subtitle">Soluciones gastronómicas al alcance de tu empresa</p>
+        
+        <div class="mission-vision" style="max-width: 900px; margin: 0 auto;">
+            <div class="card precio-card">
+                <h3>Almuerzos Caseros</h3>
+                <p style="margin-top: 1rem; min-height: 60px;">Menú completo caliente. Incluye plato de fondo, acompañamiento y ensalada o postre.</p>
+                <h2 class="valor">$8.300</h2>
+                <p style="font-size: 0.85rem; color: #7f8c8d;">Valor por unidad</p>
+            </div>
+            
+            <div class="card precio-card">
+                <h3>Colaciones Frías</h3>
+                <p style="margin-top: 1rem; min-height: 60px;">Corresponden a sándwich de carne o pollo, más bebida, agua mineral, fruta o snack.</p>
+                <h2 class="valor">$7.900</h2>
+                <p style="font-size: 0.85rem; color: #7f8c8d;">Valor por unidad</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #ecf0f1; margin-top: 3rem; font-size: 0.95rem;">
+            * Consulta por precios especiales y convenios mensuales para empresas dependiendo del volumen de tus pedidos.
+        </p>
     </section>
 
     <!-- Contacto -->
@@ -1351,7 +271,7 @@
         <p class="section-subtitle" style="color: rgba(44,62,80,0.7);">Visítanos o contáctanos para más información</p>
         
         <div class="contact-grid">
-            <div class="contact-card">
+            <div class="location-card">
                 <div class="location-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.738726845214!2d-70.3321!3d-27.3668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ba57d5b7c4b8d1%3A0x0!2sColipi%20631%2C%201530455%20Copiapo!5e0!3m2!1ses!2scl!4v1712893200000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -1399,77 +319,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Valentina - Colaciones Empresariales. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Comercial Valentina - Colaciones Empresariales. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desde 2019 sirviendo con calidad y dedicación</p>
     </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer click en un link
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scroll para navegación
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Animación al scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
-                    entry.target.style.opacity = '1';
-                }
-            });
-        }, observerOptions);
-
-        // Observar todas las secciones
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            observer.observe(section);
-        });
-
-        // La primera sección (hero) debe aparecer inmediatamente
-        document.querySelector('.hero').style.opacity = '1';
-    </script>
+    
+    <!-- Enlace a tu archivo JavaScript externo -->
+    <script src="script.js"></script>
 </body>
 </html>
