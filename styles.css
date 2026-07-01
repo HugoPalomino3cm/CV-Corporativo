@@ -373,6 +373,7 @@ section h2::after {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    align-items: stretch;
 }
 
 .card {
@@ -593,24 +594,61 @@ section h2::after {
 }
 
 .precio-card {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centra los elementos en el eje transversal */
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 2.4rem 2.2rem;
+    min-height: 520px;
 }
 
 /* Nueva regla para forzar el centrado del título en esta tarjeta específica */
 .precio-card h3 {
-    justify-content: center;
+    text-align: center;
     width: 100%;
+    margin: 0 0 1.1rem 0;
+}
+
+.precio-intro {
+    color: #34495e;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: center;
+    margin: 0 0 1.15rem 0;
+}
+
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.8rem 0;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.price-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    color: #34495e;
+    line-height: 1.55;
+    font-size: 0.92rem;
+}
+
+.price-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #3498db;
+    font-weight: 700;
 }
 
 .precio-card h2.valor {
     color: #3498db;
     font-size: 2.8rem;
-    margin: 1.5rem 0 0.5rem 0;
+    margin: auto 0 0.35rem 0;
     text-shadow: none;
+    text-align: center;
 }
  
 .precio-card h2.valor::after {
