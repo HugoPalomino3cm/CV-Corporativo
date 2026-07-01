@@ -1082,7 +1082,8 @@ footer p {
     
     /* TARIFAS */
     .precio-card {
-        padding: 2rem 1.5rem;
+        padding: 1.7rem 1.25rem;
+        min-height: auto;
     }
     
     .precio-card h3 {
@@ -1091,6 +1092,7 @@ footer p {
     
     .precio-card h2.valor {
         font-size: 2.2rem;
+        margin: 1rem 0 0.35rem 0;
     }
     
     /* CONTACTO */
@@ -1278,7 +1280,8 @@ footer p {
     
     /* TARIFAS */
     .precio-card {
-        padding: 1.8rem 1rem;
+        padding: 1.5rem 1rem;
+        min-height: auto;
     }
     
     .precio-card h3 {
@@ -1287,7 +1290,7 @@ footer p {
     
     .precio-card h2.valor {
         font-size: 2rem;
-        margin: 1rem 0 0.3rem 0;
+        margin: 0.9rem 0 0.3rem 0;
     }
     
     /* CONTACTO */
