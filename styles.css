@@ -643,18 +643,6 @@ section h2::after {
     font-weight: 700;
 }
 
-.precio-card h2.valor {
-    color: #3498db;
-    font-size: 2.8rem;
-    margin: auto 0 0.35rem 0;
-    text-shadow: none;
-    text-align: center;
-}
- 
-.precio-card h2.valor::after {
-    display: none;
-}
-
 /* Contacto */
 .contact {
     background: linear-gradient(135deg, #2c3e50 0%, #1f2d3d 100%);
